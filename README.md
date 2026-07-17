@@ -20,8 +20,6 @@ Project 362 continuously captures your screen and audio, processes the feeds loc
 
 ## App Interface
 
-![Project 362 Dashboard](Screenshots/Screenshot%202026-07-18%20000449.png)
-
 ![Project 362 Widget](Screenshots/Screenshot%202026-07-18%20000459.png)
 
 ![Project 362 Settings](Screenshots/Screenshot%202026-07-18%20000515.png)
