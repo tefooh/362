@@ -1,0 +1,221 @@
+/* Project 362: your days on screen, reported like news */
+/* Warm Editorial Bento design system. No shadows, no UI gradients, no glass. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas: #e7dfd0;
+    --surface: #ffffff;
+    --tan-soft: #e9e1d2;
+    --tan: #ddd3c0;
+    --charcoal: #171512;
+    --ink-muted: #6f6a61;
+    --orange: #e35e2b;
+    --yellow: #eeeb86;
+  }
+
+  * {
+    border-color: var(--charcoal);
+    scrollbar-width: thin;
+    scrollbar-color: var(--charcoal) transparent;
+  }
+
+  /* Custom Scrollbar for Webkit/Blink */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--charcoal);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+  }
+
+  html {
+    background: var(--canvas);
+  }
+
+  body {
+    @apply bg-canvas text-charcoal font-sans antialiased;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  ::selection {
+    background: var(--yellow);
+    color: var(--charcoal);
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Standard hairline-outlined card */
+  .p362-card {
+    @apply rounded-card border-hairline border-charcoal;
+  }
+
+  /* Display serif heading */
+  .p362-display {
+    font-family: "DM Serif Display", Georgia, serif;
+    letter-spacing: -0.025em;
+    line-height: 0.97;
+  }
+
+  /* Uppercase eyebrow label */
+  .p362-eyebrow {
+    @apply font-sans font-semibold uppercase;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  /* Fully rounded pill control */
+  .p362-pill {
+    @apply inline-flex items-center gap-2 rounded-full border-hairline border-charcoal font-sans font-semibold;
+    font-size: 12px;
+    height: 38px;
+    padding: 0 18px;
+    transition: transform 180ms ease-out, background-color 180ms ease-out,
+      color 180ms ease-out;
+  }
+
+  .p362-pill:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  .p362-pill:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  /* Orange diamond mark (replaces stars / generic icons) */
+  .p362-diamond {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: var(--orange);
+    border: 1.25px solid var(--charcoal);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* Hairline divider */
+  .p362-divider {
+    border-top: 1.25px solid var(--charcoal);
+    width: 100%;
+  }
+
+  /* Staggered fadeIn animations */
+  @keyframes fadeInStaggered {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-stagger-1 {
+    animation: fadeInStaggered 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.05s;
+    opacity: 0;
+  }
+
+  .animate-stagger-2 {
+    animation: fadeInStaggered 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+    opacity: 0;
+  }
+
+  .animate-stagger-3 {
+    animation: fadeInStaggered 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.25s;
+    opacity: 0;
+  }
+
+  .animate-stagger-4 {
+    animation: fadeInStaggered 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.35s;
+    opacity: 0;
+  }
+
+  /* Modal scale animations */
+  @keyframes modalScaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes modalScaleOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+
+  .animate-modal-in {
+    animation: modalScaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-modal-out {
+    animation: modalScaleOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Gradual staggered fadeOut animations */
+  @keyframes fadeOutStaggered {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-fade-out-1 {
+    animation: fadeOutStaggered 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0s;
+  }
+
+  .animate-fade-out-2 {
+    animation: fadeOutStaggered 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.08s;
+  }
+
+  .animate-fade-out-3 {
+    animation: fadeOutStaggered 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.16s;
+  }
+
+  .animate-fade-out-4 {
+    animation: fadeOutStaggered 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.24s;
+  }
+}

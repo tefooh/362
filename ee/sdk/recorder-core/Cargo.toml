@@ -1,0 +1,27 @@
+[package]
+name = "project-362-recorder"
+version = "0.4.3"
+edition = "2021"
+description = "Pure-Rust recorder orchestration for the project-362 SDK — screen + MP4 + event-driven paired capture. Consumed by both the napi addon (ee/sdk) and the Tauri plugin (ee/sdk/tauri/rust) so neither has to spawn a Node bridge."
+license = "LicenseRef-Project 362-Enterprise"
+publish = false
+
+[dependencies]
+project-362-screen  = { path = "../../../crates/project-362-screen" }
+project-362-core    = { path = "../../../crates/project-362-core", default-features = false }
+project-362-a11y    = { path = "../../../crates/project-362-a11y", default-features = false }
+project-362-capture = { path = "../../../crates/project-362-capture" }
+project-362-db      = { path = "../../../crates/project-362-db" }
+project-362-config  = { path = "../../../crates/project-362-config" }
+
+anyhow = { workspace = true }
+chrono = { workspace = true }
+crossbeam-channel = "0.5"
+image = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+cpal = { git = "https://github.com/screenpipe/cpal.git", rev = "01b68e60c80a59bbc1cac3629e725cf3bb2e4901" }
+
+[dev-dependencies]
+chrono = { workspace = true }

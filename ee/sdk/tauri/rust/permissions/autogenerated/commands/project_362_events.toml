@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-project-362-events"
+description = "Enables the project_362_events command without any pre-configured scope."
+commands.allow = ["project_362_events"]
+
+[[permission]]
+identifier = "deny-project-362-events"
+description = "Denies the project_362_events command without any pre-configured scope."
+commands.deny = ["project_362_events"]

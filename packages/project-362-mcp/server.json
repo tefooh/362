@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.project-362/project-362-mcp",
+  "title": "project-362",
+  "description": "Search your local screen recordings, audio transcripts, and computer activity from project-362.",
+  "repository": {
+    "url": "https://github.com/project-362/project-362",
+    "source": "github",
+    "subfolder": "packages/project-362-mcp"
+  },
+  "version": "0.18.15",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "project-362-mcp",
+      "version": "0.18.15",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

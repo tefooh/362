@@ -1,0 +1,131 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Project 362 beta",
+  "identifier": "screenpi.pe.beta",
+  "build": {
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000"
+  },
+  "bundle": {
+    "createUpdaterArtifacts": true,
+    "active": true,
+    "publisher": "Project 362",
+    "category": "DeveloperTool",
+    "shortDescription": "Your days on screen, reported like news",
+    "longDescription": "Project 362 turns your screen activity into a daily newspaper edition. 100% local. You own your data.",
+    "copyright": "",
+    "targets": [
+      "app",
+      "dmg",
+      "deb",
+      "appimage",
+      "nsis"
+    ],
+    "externalBin": [
+      "bun"
+    ],
+    "icon": [
+      "icons/beta/32x32.png",
+      "icons/beta/128x128.png",
+      "icons/beta/128x128@2x.png",
+      "icons/beta/256x256.png",
+      "icons/beta/512x512.png",
+      "icons/beta/1024x1024.png",
+      "icons/beta/icon.icns",
+      "icons/beta/icon.ico",
+      "icons/project-362-logo-tray-failed.png",
+      "icons/project-362-logo-tray-beta.png"
+    ],
+    "resources": [
+      "assets/*",
+      "PermissionFlow_PermissionFlow.bundle"
+    ],
+    "macOS": {
+      "entitlements": "entitlements.plist",
+      "hardenedRuntime": true
+    }
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "dialog": false,
+      "endpoints": [
+        "https://project-362.com/api/app-update/beta/{{target}}-{{arch}}/{{current_version}}"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDIyQjQ2RkQzMUNBOUFDMTcKUldRWHJLa2MwMiswSWl3RlBGUW5zYUE0Zm0vNFFRRTltNUZZTUVxR2FxUDNtSWdUSHgyL3JNcmcK"
+    },
+    "deep-link": {
+      "desktop": {
+        "schemes": [
+          "project-362-beta"
+        ]
+      },
+      "mobile": [
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/auth"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/stripe-connect"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/purchase-successful"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/settings"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/changelog"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/onboarding"
+          ]
+        },
+        {
+          "host": "project-362.com",
+          "pathPrefix": [
+            "/status"
+          ]
+        }
+      ]
+    }
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "trayIcon": {
+      "id": "project_362_main",
+      "iconPath": "assets/project-362-logo-tray-white.png",
+      "iconAsTemplate": true,
+      "menuOnLeftClick": true
+    },
+    "security": {
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$APPDATA/**",
+          "$HOME/.project-362/**"
+        ]
+      },
+      "csp": null
+    },
+    "macOSPrivateApi": true
+  }
+}

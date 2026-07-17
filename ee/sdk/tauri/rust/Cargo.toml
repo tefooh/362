@@ -1,0 +1,39 @@
+[package]
+name = "project-362-tauri"
+version = "0.4.3"
+edition = "2021"
+description = "Native Tauri v2 plugin for the project-362 SDK — in-process recorder, no Node bridge"
+license = "LicenseRef-Project 362-Enterprise"
+publish = false
+# Tauri's permission system derives the namespace from `links`. We
+# want runtime invocations like `plugin:project-362|<cmd>` to match the
+# permission allow-list, so set `links = "project-362"` to align the
+# build-time namespace with `PluginBuilder::new("project-362")` in
+# `lib.rs`. Not the same as `package.name` (`project-362-tauri`) — the
+# crate name keeps the `-tauri` suffix to disambiguate from sibling
+# packages, but the plugin identity is `project-362`.
+links = "project-362"
+
+[dependencies]
+# The pure-Rust recorder orchestration. Calling it in-process is what
+# lets this plugin avoid spawning a Node helper at runtime.
+project-362-recorder = { path = "../../recorder-core" }
+
+base64 = { workspace = true }
+serde = { workspace = true }
+serde_json = "1"
+tauri = { version = "2", default-features = false }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+# Native telemetry sender (PostHog + Sentry). The `rustls` feature avoids a
+# system OpenSSL dependency, keeping the plugin portable across macOS/Windows/Linux.
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls"] }
+
+[build-dependencies]
+# Autogenerates the Tauri v2 permissions schema from the command list
+# in `build.rs`. Without this, every plugin command 404s at runtime
+# with "plugin not found" even though `generate_handler!` wires them.
+tauri-plugin = { version = "2", features = ["build"] }
+
+[dev-dependencies]
+tempfile = { workspace = true }

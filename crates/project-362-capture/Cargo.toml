@@ -1,0 +1,27 @@
+[package]
+name = "project-362-capture"
+version = "0.1.0"
+edition = "2021"
+description = "Paired screenshot + accessibility-tree capture, persisted to the project-362 DB. Shared by the engine binary and the SDK."
+license-file = { workspace = true }
+
+[dependencies]
+project-362-a11y = { path = "../project-362-a11y" }
+project-362-core = { path = "../project-362-core", default-features = false, features = ["security"] }
+project-362-db = { path = "../project-362-db" }
+project-362-screen = { path = "../project-362-screen" }
+
+anyhow = { workspace = true }
+chrono = { workspace = true }
+image = { workspace = true }
+once_cell = { workspace = true }
+regex = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+# Process-CPU (getrusage) measurement in the ocr_gate_ab example.
+libc = { workspace = true }
+tempfile = { workspace = true }
+tokio = { workspace = true }

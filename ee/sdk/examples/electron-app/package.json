@@ -1,0 +1,18 @@
+{
+  "name": "project-362-sdk-electron-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal Electron app that records the screen via @project-362/sdk.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "smoke": "node smoke.mjs",
+    "smoke:app": "node smoke-app.mjs"
+  },
+  "dependencies": {
+    "@project-362/sdk": "file:../.."
+  },
+  "devDependencies": {
+    "electron": "^32.2.5"
+  }
+}

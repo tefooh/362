@@ -1,0 +1,11 @@
+{
+  "name": "@project-362/cli-packages",
+  "private": true,
+  "scripts": {
+    "build": "bun ./npm-e2e/cli.ts build",
+    "stage": "bun ./npm-e2e/cli.ts stage",
+    "serve": "bun ./npm-e2e/cli.ts serve",
+    "project-362": "NPM_CONFIG_REGISTRY=http://127.0.0.1:4873 npx --yes project-362@latest",
+    "test": "bun ./npm-e2e/runner.ts"
+  }
+}

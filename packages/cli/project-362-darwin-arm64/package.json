@@ -1,0 +1,12 @@
+{
+  "name": "@project-362/cli-darwin-arm64",
+  "version": "0.1.0",
+  "description": "project-362 CLI binary for macOS ARM64",
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/project-362/project-362"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}

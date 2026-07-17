@@ -1,0 +1,46 @@
+{
+  "name": "project-362-mcp",
+  "version": "0.18.15",
+  "mcpName": "io.github.project-362/project-362-mcp",
+  "description": "MCP server for project-362 - search your screen recordings and audio transcriptions",
+  "main": "dist/index.js",
+  "bin": {
+    "project-362-mcp": "dist/cli.js",
+    "project-362-mcp-http": "dist/http-server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "start:http": "node dist/cli.js --http",
+    "dev": "ts-node src/cli.ts",
+    "dev:http": "ts-node src/cli.ts --http",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "project-362",
+    "model-context-protocol",
+    "claude",
+    "ai",
+    "screen-recording",
+    "ocr",
+    "audio-transcription"
+  ],
+  "author": "Project 362",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "@sentry/node": "^10.64.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3",
+    "ts-node": "^10.9.2",
+    "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

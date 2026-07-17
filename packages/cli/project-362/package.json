@@ -1,0 +1,27 @@
+{
+  "name": "project-362",
+  "version": "0.1.0",
+  "description": "project-362 CLI — AI that knows everything you've seen, said, or heard",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "bin": {
+    "project-362": "lib/cli.js"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "optionalDependencies": {
+    "@project-362/cli-darwin-arm64": "0.1.0",
+    "@project-362/cli-darwin-x64": "0.1.0",
+    "@project-362/cli-linux-x64": "0.1.0",
+    "@project-362/cli-win32-x64": "0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/project-362/project-362"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": ["project-362", "screen-recording", "ai", "memory", "cli"]
+}

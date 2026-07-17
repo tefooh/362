@@ -1,0 +1,65 @@
+{
+  "manifest_version": "0.3",
+  "name": "project-362",
+  "display_name": "Project 362",
+  "version": "0.0.0-injected-from-package-json",
+  "description": "Search your screen recordings and audio transcriptions with AI",
+  "long_description": "Project 362 is a 24/7 screen and audio recorder that lets you search everything you've seen or heard. This extension connects Claude to your local project-362 instance, enabling AI-powered search through your digital memory.",
+  "author": {
+    "name": "project-362",
+    "url": "https://project362.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/project-362/project-362"
+  },
+  "homepage": "https://project362.com",
+  "documentation": "https://github.com/project-362/project-362/tree/main/packages/project-362-mcp",
+  "support": "https://github.com/project-362/project-362/issues",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"]
+    }
+  },
+  "tools": [
+    {
+      "name": "search-content",
+      "description": "Search through recorded screen content, audio transcriptions, and UI elements with speaker filtering"
+    },
+    {
+      "name": "export-video",
+      "description": "Export screen recordings as an MP4 for a time range — with synced audio by default (pass fps for a silent timelapse)"
+    },
+    {
+      "name": "list-meetings",
+      "description": "List detected meetings with id, duration, app, attendees, and note; q searches all history"
+    },
+    {
+      "name": "activity-summary",
+      "description": "Lightweight compressed activity overview for a time range (apps, recent texts, audio summary)"
+    },
+    {
+      "name": "search-elements",
+      "description": "Search structured UI elements (accessibility tree nodes and OCR text blocks)"
+    },
+    {
+      "name": "frame-context",
+      "description": "Get accessibility text, parsed tree nodes, and extracted URLs for a specific frame"
+    }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["screen-recording", "ocr", "audio-transcription", "automation", "memory", "search"],
+  "privacy_policies": [
+    "https://github.com/project-362/project-362/tree/main/packages/project-362-mcp#privacy-policy",
+    "https://project362.com/privacy"
+  ]
+}
